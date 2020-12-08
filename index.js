@@ -2,14 +2,14 @@
 
 import fetch from "node-fetch";
 
-export const baseBloxlinkAPIUrl = "https://api.blox.link/v1/";
+export const baseRoverAPIUrl = "https://verify.eryn.io/api/user/";
 export const baseRobloxAPIUrl = "https://api.roblox.com/";
 
 /**
  * @param {string|number} userId
  * @param {string|number} [guildId]
  */
-export default async function getBloxlinkUser(userId, guildId) {
+export default async function getRoverUser(userId, guildId) {
   // Parameter Checks
   if (!userId) return { error: "Did not provide 'userId' parameter." };
   if (isNaN(Number(userId)))
@@ -21,11 +21,11 @@ export default async function getBloxlinkUser(userId, guildId) {
   let response;
   if (guildId) {
     response = await (
-      await fetch(`${baseBloxlinkAPIUrl}user/${userId}?guild=${guildId}`)
+      await fetch(`${baseRoverAPIUrl}user/${userId}?guild=${guildId}`)
     ).json();
   } else {
     response = await (
-      await fetch(`${baseBloxlinkAPIUrl}user/${userId}`)
+      await fetch(`${baseRoverAPIUrl}user/${userId}`)
     ).json();
   }
 
@@ -35,18 +35,18 @@ export default async function getBloxlinkUser(userId, guildId) {
   }
 
   // Handle user not being linked with Bloxlink
-  if (response.error === "This user is not linked with Bloxlink.") {
+  if (response.error === "This user is not linked with RoVer.") {
     return response;
   }
 
   // Get latest username
   const username = await (
-    await fetch(`${baseRobloxAPIUrl}users/${response.primaryAccount}`)
+    await fetch(`${baseRobloxAPIUrl}/${response.primaryAccount}`)
   ).json();
 
   // Return data
   return {
-    discordId: userId,
+    status: response.status,
     robloxId: response.primaryAccount,
     robloxUsername: username.Username,
   };
