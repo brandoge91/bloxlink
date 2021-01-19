@@ -3,7 +3,7 @@
   "description": "A package to interact with the Rover API Easily!",
   "version": "1.6.0",
   "type": "module",
-  "main": "index.js",
+  "main": "index.cjs",
   "dependencies": {
     "node-fetch": "^2.6.1"
   },
