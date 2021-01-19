@@ -1,8 +1,8 @@
 // @ts-check
 const { fetch } = require('node-fetch')
 
-export const baseRoverAPIUrl = "https://verify.eryn.io/api/user/";
-export const baseRobloxAPIUrl = "https://api.roblox.com/";
+export baseRoverAPIUrl = "https://verify.eryn.io/api/user/";
+export baseRobloxAPIUrl = "https://api.roblox.com/";
 
 /**
  * @param {string|number} userId
