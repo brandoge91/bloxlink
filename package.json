@@ -1,6 +1,6 @@
 {
-  "name": "bloxlink",
-  "description": "A package to interact with the Bloxlink API Easily!",
+  "name": "rover-get",
+  "description": "A package to interact with the Rover API Easily!",
   "version": "1.6.0",
   "type": "module",
   "main": "index.js",
@@ -10,10 +10,10 @@
   "scripts": {
     "test": "node test.js"
   },
-  "repository": "https://github.com/enjoyablee/bloxlink",
+  "repository": "https://github.com/brandoge91/rover-get",
   "license": "MIT",
   "keywords": [
-    "bloxlink",
+    "rover",
     "verify",
     "roblox",
     "discord"
