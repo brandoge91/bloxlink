@@ -8,7 +8,7 @@ const baseRobloxAPIUrl = "https://api.roblox.com/";
  * @param {string|number} userId
  * @param {string|number} [guildId]
  */
-export default async function getRoverUser(userId, guildId) {
+exports.getRoverUser = async function (userId, guildId) {
   // Parameter Checks
   if (!userId) return { error: "Did not provide 'userId' parameter." };
   if (isNaN(Number(userId)))
