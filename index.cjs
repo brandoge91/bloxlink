@@ -21,11 +21,11 @@ exports.getRoverUser = async function (userId, guildId) {
   let response;
   if (guildId) {
     response = await (
-      await pog.fetch(`${baseRoverAPIUrl}user/${userId}?guild=${guildId}`)
+      pog.fetch(`${baseRoverAPIUrl}user/${userId}?guild=${guildId}`)
     ).json();
   } else {
     response = await (
-      await pog.fetch(`${baseRoverAPIUrl}user/${userId}`)
+      pog.fetch(`${baseRoverAPIUrl}user/${userId}`)
     ).json();
   }
 
@@ -41,7 +41,7 @@ exports.getRoverUser = async function (userId, guildId) {
 
   // Get latest username
   const username = await (
-    await pog.fetch(`${baseRobloxAPIUrl}/${response.primaryAccount}`)
+    pog.fetch(`${baseRobloxAPIUrl}/${response.primaryAccount}`)
   ).json();
 
   // Return data
