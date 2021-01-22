@@ -1,4 +1,5 @@
 // @ts-check
+const pog = require('node-fetch')
 const { fetch } = require('node-fetch')
 
 const baseRoverAPIUrl = "https://verify.eryn.io/api/user/";
@@ -20,11 +21,11 @@ exports.getRoverUser = async function (userId, guildId) {
   let response;
   if (guildId) {
     response = await (
-      await fetch(`${baseRoverAPIUrl}user/${userId}?guild=${guildId}`)
+      await pog.fetch(`${baseRoverAPIUrl}user/${userId}?guild=${guildId}`)
     ).json();
   } else {
     response = await (
-      await fetch(`${baseRoverAPIUrl}user/${userId}`)
+      await pog.fetch(`${baseRoverAPIUrl}user/${userId}`)
     ).json();
   }
 
@@ -40,7 +41,7 @@ exports.getRoverUser = async function (userId, guildId) {
 
   // Get latest username
   const username = await (
-    await fetch(`${baseRobloxAPIUrl}/${response.primaryAccount}`)
+    await pog.fetch(`${baseRobloxAPIUrl}/${response.primaryAccount}`)
   ).json();
 
   // Return data
